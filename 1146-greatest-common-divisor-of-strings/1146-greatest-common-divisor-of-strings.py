@@ -16,16 +16,12 @@ class Solution:
             str1Divisible, str2Divisible =True, True
             for i in range(0, len(str1), gcdLen):
                 if str1[i:i+gcdLen] != gcdCand:
-                    str1Divisible=False
-                    break
+                    return ""
             for i in range(0, len(str2), gcdLen):
                 if str2[i:i+gcdLen] != gcdCand:
-                    str2Divisible=False
-                    break
-            if str1Divisible and str2Divisible:
-                return gcdCand
-            else:
-                return ""
+                    return ""
+            return gcdCand
+                
             
 
         
