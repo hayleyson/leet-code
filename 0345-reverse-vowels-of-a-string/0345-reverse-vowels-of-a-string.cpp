@@ -1,4 +1,5 @@
 #include <cctype> // tolower
+#include <utility> // swap c++11
 
 class Solution {
 public:
@@ -10,7 +11,7 @@ public:
     }
 
     string reverseVowels(string s) {
-
+        /*two pointers solution*/
         int firstp=0, secondp=s.length()-1;
 
         while(firstp<secondp){
@@ -27,17 +28,19 @@ public:
             }
         }
 
-        // vector<int> indices;
-        // for (int i=0; i<s.length();i++){
-        //     char ch=s[i];
-        //     if(isVowel(ch)){
-        //         indices.push_back(i);
-        //     }
-        // }
-        // for(int i=0;i<indices.size()/2;i++){
-        //     char tmp=s[indices[i]];
-        //     swap(s[indices[i]], s[indices[indices.size()-i-1]]);
-        // }
+        /* original solution of mine
+        vector<int> indices;
+        for (int i=0; i<s.length();i++){
+            char ch=s[i];
+            if(isVowel(ch)){
+                indices.push_back(i);
+            }
+        }
+        for(int i=0;i<indices.size()/2;i++){
+            char tmp=s[indices[i]];
+            swap(s[indices[i]], s[indices[indices.size()-i-1]]);
+        }
+        */
         return s;
     }
 };
