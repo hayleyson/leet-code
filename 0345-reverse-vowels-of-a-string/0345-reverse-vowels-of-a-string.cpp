@@ -1,7 +1,6 @@
 class Solution {
 public:
     string reverseVowels(string s) {
-        const string s2=s;
         vector<int> indices;
         for (int i=0; i<s.length();i++){
             char ch=s[i];
@@ -9,8 +8,10 @@ public:
                 indices.push_back(i);
             }
         }
-        for(int i=0;i<indices.size();i++){
-            s[indices[i]]=s2[indices[indices.size()-i-1]];
+        for(int i=0;i<indices.size()/2;i++){
+            char tmp=s[indices[i]];
+            s[indices[i]]=s[indices[indices.size()-i-1]];
+            s[indices[indices.size()-i-1]]=tmp;
         }
         return s;
     }
