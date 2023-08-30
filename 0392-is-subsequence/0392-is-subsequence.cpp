@@ -8,7 +8,6 @@ public:
             if (s[j] == t[i]) j++;
             i++;
         }
-        if (j==s.size()) return true;
-        else return false;
+        return (j==s.size());
     }
 };
