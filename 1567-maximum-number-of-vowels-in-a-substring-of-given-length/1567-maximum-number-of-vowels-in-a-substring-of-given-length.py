@@ -1,8 +1,14 @@
 class Solution:
 
     def maxVowels(self, s: str, k: int) -> int:
-        isVowels = [1 if ch in 'aeiou' else 0 for ch in s]
-        maxCount = count = sum(isVowels[:k])
+        ## checking if vowel for the entire string up front saves time later!
+        isVowels = [1 if ch in 'aeiou' else 0 for ch in s] 
+        
+        # maxCount = count = sum(isVowels[:k])
+        count = 0
+        for i in range(k):
+            count += isVowels[i]
+        maxCount = count
         if (maxCount == k) or (len(s) == k):
             return maxCount
         for i in range(k, len(s)):
