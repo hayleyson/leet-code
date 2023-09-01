@@ -1,6 +1,6 @@
 class Solution:
     def isVowel(self, ch: str):
-        return (ch=='a') or (ch=='e') or (ch=='i') or (ch=='o') or (ch=='u')
+        return ch in 'aeiou'
 
     def maxVowels(self, s: str, k: int) -> int:
         count = 0
