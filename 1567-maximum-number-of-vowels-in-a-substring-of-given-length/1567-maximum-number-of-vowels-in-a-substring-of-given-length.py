@@ -1,19 +1,15 @@
 class Solution:
-
-    def isVowel(self, ch: str):
-        return 1 if ch in 'aeiou' else 0
-
     def maxVowels(self, s: str, k: int) -> int:
         count = 0
         for i in range(k):
-            count += self.isVowel(s[i])
+            count += 1 if s[i] in 'aeiou' else 0
         max_count = count
         if (len(s)==k) or (max_count==k):
             return max_count
         for i in range(k, len(s)):
-            if self.isVowel(s[i-k]):
+            if s[i-k] in 'aeiou':
                 count -=1
-            if self.isVowel(s[i]):
+            if s[i] in 'aeiou':
                 count += 1 
             max_count = max(max_count, count)
             if (max_count==k):
