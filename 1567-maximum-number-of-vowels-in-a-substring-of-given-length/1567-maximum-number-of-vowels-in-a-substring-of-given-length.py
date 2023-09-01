@@ -1,38 +1,18 @@
 class Solution:
 
+    def isVowel(self, ch: str):
+        return 1 if ch in 'aeiou' else 0
+
     def maxVowels(self, s: str, k: int) -> int:
-        ## because list comprehension is faster?
-        # isVowels = [1 if ch in 'aeiou' else 0 for ch in s] 
-        isVowels=[]
-        for ch in s:
-            isVowels.append(1 if ch in 'aeiou' else 0)
-
-        maxCount = count = sum(isVowels[:k])
-        if (maxCount == k) or (len(s) == k):
-            return maxCount
-        for i in range(k, len(s)):
-            # if isVowels[i] == 1:
-            if s[i] in 'aeiou':
-                count +=1
-            # if isVowels[i-k] == 1:
-            if s[i-k] in 'aeiou':
-                count -= 1
-            # count = count + (1 if s[i] in 'aeiou' else 0) - (1 if s[i-k] in 'aeiou' else 0) 
-            maxCount = max(maxCount, count)
-            if maxCount == k:
-                return maxCount
-        return maxCount
-
-    # def isVowel(self, ch: str):
-    #     return 1 if ch in 'aeiou' else 0
-
-    # def maxVowels(self, s: str, k: int) -> int:
-    #     count = 0
-    #     for i in range(k):
-    #         count += self.isVowel(s[i])
-    #     max_count = count
-    #     if (k < len(s)):
-    #         for i in range(k, len(s)):
-    #             count = count - self.isVowel(s[i-k]) + self.isVowel(s[i])
-    #             max_count = max(max_count, count)
-    #     return max_count
+        count = 0
+        for i in range(k):
+            count += self.isVowel(s[i])
+        max_count = count
+        if (k < len(s)):
+            for i in range(k, len(s)):
+                if self.isVowel(s[i-k]):
+                    count -=1
+                if self.isVowel(s[i]):
+                    count += 1 
+                max_count = max(max_count, count)
+        return max_count
