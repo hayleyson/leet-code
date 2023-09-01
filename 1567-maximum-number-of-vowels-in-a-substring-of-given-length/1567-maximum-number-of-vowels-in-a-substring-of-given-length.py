@@ -12,10 +12,12 @@ class Solution:
             return maxCount
         for i in range(k, len(s)):
             # if isVowels[i] == 1:
-            #     count +=1
+            if s[i] in 'aeiou':
+                count +=1
             # if isVowels[i-k] == 1:
-            #     count -= 1
-            count = count + (1 if s[i] in 'aeiou' else 0) - (1 if s[i-k] in 'aeiou' else 0) 
+            if s[i-k] in 'aeiou':
+                count -= 1
+            # count = count + (1 if s[i] in 'aeiou' else 0) - (1 if s[i-k] in 'aeiou' else 0) 
             maxCount = max(maxCount, count)
             if maxCount == k:
                 return maxCount
