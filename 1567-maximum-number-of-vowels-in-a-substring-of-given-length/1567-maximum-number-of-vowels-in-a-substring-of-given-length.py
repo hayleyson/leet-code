@@ -6,7 +6,10 @@ class Solution:
         if (maxCount == k) or (len(s) == k):
             return maxCount
         for i in range(k, len(s)):
-            count = count + isVowels[i] - isVowels[i-k]
+            if isVowels[i] == 1:
+                count +=1
+            if isVowels[i-k] == 1:
+                count -= 1
             maxCount = max(maxCount, count)
             if maxCount == k:
                 return maxCount
