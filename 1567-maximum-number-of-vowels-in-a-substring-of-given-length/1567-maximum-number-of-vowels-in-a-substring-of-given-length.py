@@ -6,8 +6,10 @@ class Solution:
         count = 0
         for i in range(k):
             count += self.isVowel(s[i])
-        max_count=count
-        for i in range(k, len(s)):
+        max_count = count
+        i = k
+        while (max_count != k) and (i < len(s)):
             count = count - self.isVowel(s[i-k]) + self.isVowel(s[i])
             max_count = max(max_count, count)
+            i += 1
         return max_count
