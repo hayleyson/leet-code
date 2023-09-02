@@ -29,10 +29,10 @@ class Solution(object):
         c0 = 0
         n = len(nums)
 
-        while(j < len(nums)):
+        while(j < n):
             if nums[j] == 0:
                 c0 += 1
-            while (i < len(nums) and c0 == 2):
+            while (i < n and c0 == 2):
                 if nums[i] == 0:
                     c0 -= 1
                 i+= 1
