@@ -5,10 +5,10 @@ public:
         for(const int& i: arr){
             intCount[i]++;
         }
-        std::unordered_set<int> counts;
+        std::unordered_map<int, int> countCount;
         for (auto elem: intCount){
-            if(counts.find(elem.second)!=counts.end()) return false;
-            counts.insert(elem.second);
+            if(countCount.count(elem.second)!=0) return false;
+            countCount[elem.second]++;
         }
         return true;
 
