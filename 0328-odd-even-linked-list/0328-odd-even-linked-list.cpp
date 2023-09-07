@@ -14,18 +14,20 @@ public:
         if (head == nullptr) return head;
         
         ListNode* curNode = head;
-        ListNode* nextNode, *prevNode;
+        ListNode* tmpNode, *prevNode;
         ListNode* evenStart=head-> next;
         int i = 0;
-        while(curNode->next != nullptr){
-            nextNode=curNode -> next;
-            curNode->next = nextNode-> next;
-            prevNode = curNode;
-            curNode = nextNode;
+        // connecting node to the next next node
+        while(curNode->next != nullptr){ // loop over until curNode is not the last elem of linked list
+            tmpNode=curNode -> next;
+            curNode->next = tmpNode-> next; // connect current node to a node 2 steps ahead
+            prevNode = curNode; // save current curNode for later
+            curNode = tmpNode; // move curNode 1 step head
             i++;
         }
-        if (i%2==0) curNode -> next = evenStart;
-        else prevNode->next = evenStart;
+        // connecting end of odd group to start of even group
+        if (i%2==0) curNode -> next = evenStart;  // if the linked list length is odd
+        else prevNode->next = evenStart; // if the linked list length is even
         return head;
         
     }
