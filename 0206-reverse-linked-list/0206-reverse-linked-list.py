@@ -6,7 +6,7 @@
 class Solution:
 
     def reverseListHelp(self, prevNode, curNode) -> None:
-        if curNode.next == None:
+        if curNode.next is None:
             curNode.next = prevNode
             return curNode
         else:
@@ -28,8 +28,7 @@ class Solution:
         # return prevNode
         if head is None:
             return head
-        prevNode = None
-        lastNode = self.reverseListHelp(prevNode, head)
+        lastNode = self.reverseListHelp(None, head)
         return lastNode
 
         
