@@ -26,11 +26,10 @@ class Solution:
                 prevNode = curNode
                 curNode = curNode.next # jump to the next node
                 curId += 1 # increase curId
-            # now curId == delId-1 and curNode is the ()curId-1)'th node from the head
+            # now curId == delId-1 and curNode is the (curId-1)'th node from the head
             # how to remove a node from linked list?
-            # set the previous node's next to current node's next 
-            # unset current node's next
-            # prevNode.next = curNode.next
+            # - set the previous node's next to current node's next 
+            # - unset current node's next
             delNode = curNode.next
             curNode.next = delNode.next
             delNode.next = None
