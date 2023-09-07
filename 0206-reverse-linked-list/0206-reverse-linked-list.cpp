@@ -10,39 +10,44 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        ListNode* curNode = head;
-        ListNode* prevNode = NULL;
-        ListNode* tmpNode = NULL;
+    // ListNode* reverseList(ListNode* head) {
+    //     ListNode* curNode = head;
+    //     ListNode* prevNode = NULL;
+    //     ListNode* tmpNode = NULL;
 
-        while(curNode != NULL){
-            tmpNode = curNode->next;
+    //     while(curNode != NULL){
+    //         tmpNode = curNode->next;
+    //         curNode->next = prevNode;
+    //         prevNode = curNode;
+    //         curNode = tmpNode;
+    //     }
+    //     return prevNode;
+    // }
+
+    ListNode* reverseListHelp(ListNode* prevNode, ListNode* curNode) {
+        if (!curNode->next){
             curNode->next = prevNode;
-            prevNode = curNode;
-            curNode = tmpNode;
+            return curNode;
+        } else {
+            ListNode* nextNode = curNode-> next;
+            curNode->next = prevNode;
+            ListNode* lastNode = reverseListHelp(curNode, nextNode);
+            return lastNode;
         }
-        return prevNode;
     }
+    
+    ListNode* reverseList(ListNode* head) {
+        if (!head) return head;
+        ListNode* lastNode = reverseListHelp(NULL, head);
+        return lastNode;
+    
+    }
+
+
+
 };
 
-    // # -- iterative version -- # 
-    // # -- 37ms, 17.7mb -- #
-    // # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-    // #     curNode = head
-    // #     prevNode = None
-    // #     tmpNode = None
-    // #     while curNode != None:
-    // #         tmpNode = curNode.next
-    // #         curNode.next = prevNode
-    // #         prevNode = curNode
-    // #         curNode = tmpNode
-        
-    // #     return prevNode
-        
-
-
-
-    
+ 
     // # -- recursion version -- # 
     // # -- 47ms, 22.9mb -- #
     // def reverseListHelp(self, prevNode, curNode) -> None:
