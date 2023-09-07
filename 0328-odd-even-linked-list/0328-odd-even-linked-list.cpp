@@ -22,7 +22,7 @@ public:
             tmpNode=curNode -> next;
             curNode->next = tmpNode-> next; // connect current node to a node 2 steps ahead
             prevNode = curNode; // save current curNode for later
-            curNode = tmpNode; // move curNode 1 step head
+            curNode = tmpNode; // move curNode 1 step ahead
             i++;
         }
         // connecting end of odd group to start of even group
