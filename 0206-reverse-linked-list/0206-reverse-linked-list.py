@@ -4,7 +4,9 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-
+    
+    # -- recursion version -- # 
+    # -- 47ms, 22.9mb -- #
     def reverseListHelp(self, prevNode, curNode) -> None:
         if curNode.next is None:
             curNode.next = prevNode
@@ -16,19 +18,23 @@ class Solution:
             return lastNode
 
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        # curNode = head
-        # prevNode = None
-        # tmpNode = None
-        # while curNode != None:
-        #     tmpNode = curNode.next
-        #     curNode.next = prevNode
-        #     prevNode = curNode
-        #     curNode = tmpNode
-        
-        # return prevNode
+
         if head is None:
             return head
         lastNode = self.reverseListHelp(None, head)
         return lastNode
 
+    # -- iterative version -- # 
+    # -- 37ms, 17.7mb -- #
+    # def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    #     curNode = head
+    #     prevNode = None
+    #     tmpNode = None
+    #     while curNode != None:
+    #         tmpNode = curNode.next
+    #         curNode.next = prevNode
+    #         prevNode = curNode
+    #         curNode = tmpNode
+        
+    #     return prevNode
         
