@@ -20,17 +20,16 @@ public:
 
         int half = size/2;
         int idx = 0;
-        curNode = head;
         int sumList[half];
-        int maxSum=0;
         sumList[0]=head->val;
+        int maxSum=0;
+        curNode = head;
         while(curNode->next){
             idx++;
             curNode = curNode->next;
             if (idx<half) sumList[idx]=curNode->val;
             else {
-                sumList[size-1-idx] += curNode->val;
-                maxSum=max(sumList[size-1-idx], maxSum);
+                maxSum=max(sumList[size-1-idx] + curNode->val, maxSum);
             }
         }
         return maxSum;
