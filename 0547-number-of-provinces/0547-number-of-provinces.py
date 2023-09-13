@@ -1,4 +1,4 @@
-class Solution(object):
+class Solution:
 
     def __DFSHelp(self, node, neighbors, visited):
         if visited[node] == False:
@@ -6,7 +6,7 @@ class Solution(object):
             for u in neighbors[node]:
                 self.__DFSHelp(u, neighbors, visited)
 
-    def findCircleNum(self, isConnected):
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
         """
         :type isConnected: List[List[int]]
         :rtype: int
@@ -31,3 +31,4 @@ class Solution(object):
                 self.__DFSHelp(v, neighbors, visited)
 
         return count
+        
