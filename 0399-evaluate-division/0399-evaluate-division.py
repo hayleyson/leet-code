@@ -6,12 +6,10 @@ class Solution:
         if visited[node] == False:
             visited[node] = True
             for u, weight in neighbors[node]:
-                print(u, weight)
                 if u == targetNode:
                     return distance * weight
                 else:
                     target_distance = self.__DFSHelp(u, neighbors, visited, targetNode, distance * weight)
-                    print("!!!!", target_distance)
                     if target_distance != -1 and target_distance is not None:
                         return target_distance
             return -1
@@ -29,10 +27,8 @@ class Solution:
             neighbors[u] += [(v, 1/weight)]
             neighbors[v] += [(u, weight)]
             
-        print(neighbors)
         returnVals = []
         for (w, z) in queries:
-            print((w, z))
             if (w not in neighbors) or (z not in neighbors):
                 returnVals.append(-1)
             elif w == z:
@@ -41,7 +37,6 @@ class Solution:
                 visited = {v: False for v in V}
                 distance = 1.0
                 target_distance = self.__DFSHelp(z, neighbors, visited, w, distance)
-                print(target_distance)
                 returnVals.append(target_distance)
 
         return returnVals        
