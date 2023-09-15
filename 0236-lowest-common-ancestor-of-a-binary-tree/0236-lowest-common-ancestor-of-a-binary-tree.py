@@ -23,7 +23,6 @@ class Solution:
             else:
                 trueCount = sum([resSelf, resL, resR])
                 if trueCount == 2: # if two of the above conditions are true.
-                    print("!!!")
                     return True, curNode
                 elif trueCount == 1: # if only one is met.
                     return True, None
