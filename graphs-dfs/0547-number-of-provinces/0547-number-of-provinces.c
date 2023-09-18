@@ -34,7 +34,7 @@ int findCircleNum(int** isConnected, int isConnectedSize, int* isConnectedColSiz
 
 int main(){
     // int n=3;
-    // int *myIsConnected[3] = {
+    // int *myIsConnected[3] = { // parameter of type int**: https://stackoverflow.com/questions/41647445/incompatible-pointer-types-passing-int55-to-parameter-of-type-int
     //     (int[]){1,1,0}, 
     //     (int[]){1,1,0}, 
     //     (int[]){0,0,1}
