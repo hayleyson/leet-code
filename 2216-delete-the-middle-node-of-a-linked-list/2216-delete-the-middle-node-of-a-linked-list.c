@@ -19,8 +19,7 @@ int getSizeLL(struct ListNode * head){
 }
 struct ListNode* deleteMiddle(struct ListNode* head){
     
-    int mysize = getSizeLL(head);
-    int midpoint = mysize / 2;
+    int midpoint = getSizeLL(head) / 2;
     if (midpoint==0){
         return NULL;
     }
