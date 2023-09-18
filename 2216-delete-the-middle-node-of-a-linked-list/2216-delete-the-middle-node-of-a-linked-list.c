@@ -30,9 +30,9 @@ struct ListNode* deleteMiddle(struct ListNode* head){
     ListNode* prev=NULL;
         
     while (curr != NULL){
-        printf("val: %d, index: %d\n", curr->val, index);
+        // printf("val: %d, index: %d\n", curr->val, index);
         if (index == midpoint){
-            printf("Deleting this node. (index: %d, val: %d)\n", index, curr->val);
+            // printf("Deleting this node. (index: %d, val: %d)\n", index, curr->val);
             prev->next = curr->next;
             free(curr);
             break;
